@@ -10,6 +10,7 @@ import com.github.martinbennett.policeuk.api.Force;
 import com.github.martinbennett.policeuk.api.crime.Outcome;
 import com.github.martinbennett.policeuk.api.crime.DetailedOutcome;
 import com.github.martinbennett.policeuk.api.Person;
+import com.github.martinbennett.policeuk.api.neighbourhood.Priority;
 import com.github.martinbennett.policeuk.util.AreaPolygon;
 import com.github.martinbennett.policeuk.util.DefinedCrimeCategory;
 import com.github.martinbennett.policeuk.util.PoliceAPI;
@@ -17,7 +18,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
-import java.net.MalformedURLException;
 import java.net.URISyntaxException;
 import java.util.ArrayList;
 
@@ -275,6 +275,37 @@ public class PoliceUK {
                     lastAPIUpdate != null ? lastAPIUpdate.getDateSimple() : getLastAPIUpdate().getDateSimple()),
                     TypeFactory.defaultInstance().constructCollectionType(ArrayList.class, Crime.class));
         } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public ArrayList<Priority> getNeighbourhoodEvents(final String force, final String hood) {
+        try {
+            return OBJECT_MAPPER.readValue(PoliceAPI.neighbourhoodEvent(force, hood),
+                    TypeFactory.defaultInstance().constructCollectionType(ArrayList.class, Person.class));
+        } catch (IOException | URISyntaxException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+
+    public ArrayList<Priority> getNeighbourhoodPriorities(final String force, final String hood) {
+        try {
+            return OBJECT_MAPPER.readValue(PoliceAPI.neighbourhoodPriorities(force, hood),
+                    TypeFactory.defaultInstance().constructCollectionType(ArrayList.class, Person.class));
+        } catch (IOException | URISyntaxException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public ArrayList<Person> getNeighbourhoodTeam(final String force, final String hood) {
+        try {
+            return OBJECT_MAPPER.readValue(PoliceAPI.neighbourhoodTeam(force, hood),
+                    TypeFactory.defaultInstance().constructCollectionType(ArrayList.class, Person.class));
+        } catch (IOException | URISyntaxException e) {
             e.printStackTrace();
         }
         return null;
