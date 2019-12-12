@@ -91,6 +91,18 @@ public class Force {
         this.name = name;
     }
 
+    public String toPrettyPrint() {
+        StringBuilder sb = new StringBuilder(String.format(
+                "# Force #%n description: %s%n url: %s%n telephone: %s%n id: %s%n name: %s",
+                this.description, this.url, this.telephone, this.id, this.name));
+
+        for (EngagementMethod engagementMethod : getEngagementMethods()) {
+            sb.append("%n").append(engagementMethod.toPrettyPrint());
+        }
+
+        return sb.toString();
+    }
+
     @Override
     public String toString() {
         return "Force{" +

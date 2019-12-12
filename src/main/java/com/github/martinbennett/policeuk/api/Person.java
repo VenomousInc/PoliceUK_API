@@ -22,6 +22,11 @@ public class Person {
     @JsonProperty("rank")
     public String rank;
 
+    public String toPrettyPrint() {
+        return String.format(
+                "# Person #%n bio: %s%n contactDetails: %s%n name: %s%n rank: %s", this.bio, this.contactDetails, this.name, this.rank);
+    }
+
     @Override
     public String toString() {
         return "Person{" +

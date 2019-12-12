@@ -10,7 +10,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
         "category",
         "date"
 })
-public class OutcomeStatus {
+public class  OutcomeStatus {
 
     @JsonProperty("category")
     public String category;

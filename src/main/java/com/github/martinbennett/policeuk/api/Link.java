@@ -19,6 +19,11 @@ public class Link {
     @JsonProperty("title")
     public String title;
 
+    public String toPrettyPrint() {
+        return String.format(
+                "# Link #%n url: %s%n description: %s%n title: %s", this.url, this.description, this.title);
+    }
+
     @Override
     public String toString() {
         return "Link{" +

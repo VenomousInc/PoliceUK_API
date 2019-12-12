@@ -25,6 +25,14 @@ public class ContactDetails {
         this.contactProperty.put(name, value);
     }
 
+    public String toPrettyPrint() {
+        StringBuilder sb = new StringBuilder("# ContactDetails #");
+
+        getContactProperty().forEach((s, s2) -> sb.append(String.format("%n%s: %s", s, s2)));
+
+        return sb.toString();
+    }
+
     @Override
     public String toString() {
         return "ContactDetails{" +

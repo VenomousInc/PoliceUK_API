@@ -35,6 +35,10 @@ public enum DefinedCrimeCategory {
         return name().toLowerCase().replaceAll("-_", " ");
     }
 
+    public String toPrettyPrint() {
+        return String.format("Crime: %s" +
+                "%nURL: %s", getHumanizedName(), URL);
+    }
     @Override
     public String toString() {
         return URL;

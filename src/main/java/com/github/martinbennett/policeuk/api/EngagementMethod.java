@@ -62,6 +62,12 @@ public class EngagementMethod {
         this.title = title;
     }
 
+    public String toPrettyPrint() {
+        return String.format(
+                "# EngagementMethod #%n url: %s%n type: %s%n description: %s%n title: %s",
+                this.url, this.type, this.description, this.title);
+    }
+
     @Override
     public String toString() {
         return "EngagementMethod{" +

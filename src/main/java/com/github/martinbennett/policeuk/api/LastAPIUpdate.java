@@ -12,6 +12,11 @@ public class LastAPIUpdate {
         return date.substring(0, date.lastIndexOf('-'));
     }
 
+    public String toPrettyPrint() {
+        return String.format(
+                "# LastAPIUpdate #%n date: %s", this.date);
+    }
+
     @Override
     public String toString() {
         return "LastAPIUpdate{" +

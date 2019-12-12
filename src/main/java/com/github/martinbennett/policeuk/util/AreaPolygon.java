@@ -18,8 +18,8 @@ public class AreaPolygon {
     public AreaPolygon() {
     }
 
-    public AreaPolygon(final String latitude, final String longitutde) {
-        addCoord(latitude, longitutde);
+    public AreaPolygon(final String latitude, final String longitude) {
+        addCoord(latitude, longitude);
     }
 
     public void addCoord(String latCommaLng) {
