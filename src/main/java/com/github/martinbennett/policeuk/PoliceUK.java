@@ -27,6 +27,7 @@ import java.util.ArrayList;
  * @apiNote <a href="https://data.police.uk/docs">Police UK Data</a>
  * @author VenomousInc
  * @since 05/05/2019
+ *
  */
 public class PoliceUK {
 
