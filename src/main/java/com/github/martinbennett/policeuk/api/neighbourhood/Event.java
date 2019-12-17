@@ -25,7 +25,7 @@ public class Event {
     @JsonProperty("contact_details")
     private ContactDetails contactDetails;
     @JsonProperty("description")
-    private Object description;
+    private String description;
     @JsonProperty("title")
     private String title;
     @JsonProperty("address")
@@ -53,7 +53,7 @@ public class Event {
     }
 
     @JsonProperty("description")
-    public void setDescription(Object description) {
+    public void setDescription(String description) {
         this.description = description;
     }
 

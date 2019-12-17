@@ -14,11 +14,11 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 public class Priority {
 
     @JsonProperty("action")
-    private Object action;
+    private String action;
     @JsonProperty("issue-date")
     private String issueDate;
     @JsonProperty("action-date")
-    private Object actionDate;
+    private String actionDate;
     @JsonProperty("issue")
     private String issue;
 
@@ -28,7 +28,7 @@ public class Priority {
     }
 
     @JsonProperty("action")
-    public void setAction(Object action) {
+    public void setAction(String action) {
         this.action = action;
     }
 
@@ -48,7 +48,7 @@ public class Priority {
     }
 
     @JsonProperty("action-date")
-    public void setActionDate(Object actionDate) {
+    public void setActionDate(String actionDate) {
         this.actionDate = actionDate;
     }
 
@@ -64,7 +64,11 @@ public class Priority {
 
     public String toPrettyPrint() {
         return String.format(
-                "# Priorities #%n action: %s%n issueDate: %s%n actionDate: %s%n issue: %s", this.action, this.issueDate, this.actionDate, this.issue);
+                "# Priorities #" +
+                        "%n action: %s" +
+                        "%n issueDate: %s" +
+                        "%n actionDate: %s" +
+                        "%n issue: %s", this.action, this.issueDate, this.actionDate, this.issue);
     }
 
     @Override

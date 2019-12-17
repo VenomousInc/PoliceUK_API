@@ -10,6 +10,7 @@ import com.github.martinbennett.policeuk.api.Force;
 import com.github.martinbennett.policeuk.api.crime.Outcome;
 import com.github.martinbennett.policeuk.api.crime.DetailedOutcome;
 import com.github.martinbennett.policeuk.api.Person;
+import com.github.martinbennett.policeuk.api.neighbourhood.Event;
 import com.github.martinbennett.policeuk.api.neighbourhood.Priority;
 import com.github.martinbennett.policeuk.util.AreaPolygon;
 import com.github.martinbennett.policeuk.util.DefinedCrimeCategory;
@@ -42,7 +43,6 @@ public class PoliceUK {
         getLastAPIUpdate();
     }
 
-
     /**
      * CASE-SENSITIVE DATA!
      * Gets a specific Neighbourhood by the Force and ID.
@@ -65,9 +65,7 @@ public class PoliceUK {
         return OBJECT_MAPPER.readValue(PoliceAPI.specificOutcome(persistentId), DetailedOutcome.class);
     }
 
-    public ArrayList<Crime> getCrimeWithoutLocation(final DefinedCrimeCategory category,
-                                                    final String force,
-                                                    final String date) {
+    public ArrayList<Crime> getCrimeWithoutLocation(final DefinedCrimeCategory category, final String force, final String date) {
         try {
             return OBJECT_MAPPER.readValue(PoliceAPI.crimesWithoutLocation(category, force, date),
                     TypeFactory.defaultInstance().constructCollectionType(ArrayList.class, Crime.class));
@@ -284,7 +282,7 @@ public class PoliceUK {
     public ArrayList<Priority> getNeighbourhoodEvents(final String force, final String hood) {
         try {
             return OBJECT_MAPPER.readValue(PoliceAPI.neighbourhoodEvent(force, hood),
-                    TypeFactory.defaultInstance().constructCollectionType(ArrayList.class, Person.class));
+                    TypeFactory.defaultInstance().constructCollectionType(ArrayList.class, Event.class));
         } catch (IOException | URISyntaxException e) {
             e.printStackTrace();
         }
@@ -295,7 +293,7 @@ public class PoliceUK {
     public ArrayList<Priority> getNeighbourhoodPriorities(final String force, final String hood) {
         try {
             return OBJECT_MAPPER.readValue(PoliceAPI.neighbourhoodPriorities(force, hood),
-                    TypeFactory.defaultInstance().constructCollectionType(ArrayList.class, Person.class));
+                    TypeFactory.defaultInstance().constructCollectionType(ArrayList.class, Priority.class));
         } catch (IOException | URISyntaxException e) {
             e.printStackTrace();
         }
