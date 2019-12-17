@@ -1,9 +1,9 @@
-package com.github.martinbennett.policeuk.api.neighbourhood;
+package com.github.venomousinc.policeuk.api.neighbourhood;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.github.martinbennett.policeuk.api.ContactDetails;
+import com.github.venomousinc.policeuk.api.ContactDetails;
 
 /**
  * @author VenomousInc
@@ -25,7 +25,7 @@ public class Event {
     @JsonProperty("contact_details")
     private ContactDetails contactDetails;
     @JsonProperty("description")
-    private Object description;
+    private String description;
     @JsonProperty("title")
     private String title;
     @JsonProperty("address")
@@ -48,12 +48,12 @@ public class Event {
     }
 
     @JsonProperty("description")
-    public Object getDescription() {
+    public String getDescription() {
         return description;
     }
 
     @JsonProperty("description")
-    public void setDescription(Object description) {
+    public void setDescription(String description) {
         this.description = description;
     }
 

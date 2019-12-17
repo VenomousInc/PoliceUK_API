@@ -1,4 +1,4 @@
-package com.github.martinbennett.policeuk.api.neighbourhood;
+package com.github.venomousinc.policeuk.api.neighbourhood;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -14,21 +14,21 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 public class Priority {
 
     @JsonProperty("action")
-    private Object action;
+    private String action;
     @JsonProperty("issue-date")
     private String issueDate;
     @JsonProperty("action-date")
-    private Object actionDate;
+    private String actionDate;
     @JsonProperty("issue")
     private String issue;
 
     @JsonProperty("action")
-    public Object getAction() {
+    public String getAction() {
         return action;
     }
 
     @JsonProperty("action")
-    public void setAction(Object action) {
+    public void setAction(String action) {
         this.action = action;
     }
 
@@ -43,12 +43,12 @@ public class Priority {
     }
 
     @JsonProperty("action-date")
-    public Object getActionDate() {
+    public String getActionDate() {
         return actionDate;
     }
 
     @JsonProperty("action-date")
-    public void setActionDate(Object actionDate) {
+    public void setActionDate(String actionDate) {
         this.actionDate = actionDate;
     }
 
@@ -64,7 +64,11 @@ public class Priority {
 
     public String toPrettyPrint() {
         return String.format(
-                "# Priorities #%n action: %s%n issueDate: %s%n actionDate: %s%n issue: %s", this.action, this.issueDate, this.actionDate, this.issue);
+                "# Priorities #" +
+                        "%n action: %s" +
+                        "%n issueDate: %s" +
+                        "%n actionDate: %s" +
+                        "%n issue: %s", this.action, this.issueDate, this.actionDate, this.issue);
     }
 
     @Override

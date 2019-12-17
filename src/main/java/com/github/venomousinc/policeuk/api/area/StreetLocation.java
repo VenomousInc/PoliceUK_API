@@ -1,4 +1,4 @@
-package com.github.martinbennett.policeuk.api.area;
+package com.github.venomousinc.policeuk.api.area;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;

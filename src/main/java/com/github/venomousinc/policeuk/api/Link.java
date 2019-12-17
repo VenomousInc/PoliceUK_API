@@ -1,4 +1,4 @@
-package com.github.martinbennett.policeuk.api;
+package com.github.venomousinc.policeuk.api;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -15,7 +15,7 @@ public class Link {
     @JsonProperty("url")
     public String url;
     @JsonProperty("description")
-    public Object description;
+    public String description;
     @JsonProperty("title")
     public String title;
 

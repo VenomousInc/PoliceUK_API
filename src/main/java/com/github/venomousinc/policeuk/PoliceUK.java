@@ -1,19 +1,20 @@
-package com.github.martinbennett.policeuk;
+package com.github.venomousinc.policeuk;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.type.TypeFactory;
-import com.github.martinbennett.policeuk.api.area.Neighbourhood;
-import com.github.martinbennett.policeuk.api.crime.Crime;
-import com.github.martinbennett.policeuk.api.crime.CrimeCategory;
-import com.github.martinbennett.policeuk.api.LastAPIUpdate;
-import com.github.martinbennett.policeuk.api.Force;
-import com.github.martinbennett.policeuk.api.crime.Outcome;
-import com.github.martinbennett.policeuk.api.crime.DetailedOutcome;
-import com.github.martinbennett.policeuk.api.Person;
-import com.github.martinbennett.policeuk.api.neighbourhood.Priority;
-import com.github.martinbennett.policeuk.util.AreaPolygon;
-import com.github.martinbennett.policeuk.util.DefinedCrimeCategory;
-import com.github.martinbennett.policeuk.util.PoliceAPI;
+import com.github.venomousinc.policeuk.api.area.Neighbourhood;
+import com.github.venomousinc.policeuk.api.crime.Crime;
+import com.github.venomousinc.policeuk.api.crime.CrimeCategory;
+import com.github.venomousinc.policeuk.api.LastAPIUpdate;
+import com.github.venomousinc.policeuk.api.Force;
+import com.github.venomousinc.policeuk.api.crime.Outcome;
+import com.github.venomousinc.policeuk.api.crime.DetailedOutcome;
+import com.github.venomousinc.policeuk.api.Person;
+import com.github.venomousinc.policeuk.api.neighbourhood.Event;
+import com.github.venomousinc.policeuk.api.neighbourhood.Priority;
+import com.github.venomousinc.policeuk.util.AreaPolygon;
+import com.github.venomousinc.policeuk.util.DefinedCrimeCategory;
+import com.github.venomousinc.policeuk.util.PoliceAPI;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -35,13 +36,12 @@ public class PoliceUK {
 
     private static final ObjectMapper OBJECT_MAPPER = new ObjectMapper();
 
-    public LastAPIUpdate lastAPIUpdate = null;
+    private LastAPIUpdate lastAPIUpdate = null;
 
     public PoliceUK() {
         LOGGER.info("Creating PoliceUK Data Instance.");
         getLastAPIUpdate();
     }
-
 
     /**
      * CASE-SENSITIVE DATA!
@@ -65,9 +65,7 @@ public class PoliceUK {
         return OBJECT_MAPPER.readValue(PoliceAPI.specificOutcome(persistentId), DetailedOutcome.class);
     }
 
-    public ArrayList<Crime> getCrimeWithoutLocation(final DefinedCrimeCategory category,
-                                                    final String force,
-                                                    final String date) {
+    public ArrayList<Crime> getCrimeWithoutLocation(final DefinedCrimeCategory category, final String force, final String date) {
         try {
             return OBJECT_MAPPER.readValue(PoliceAPI.crimesWithoutLocation(category, force, date),
                     TypeFactory.defaultInstance().constructCollectionType(ArrayList.class, Crime.class));
@@ -284,7 +282,7 @@ public class PoliceUK {
     public ArrayList<Priority> getNeighbourhoodEvents(final String force, final String hood) {
         try {
             return OBJECT_MAPPER.readValue(PoliceAPI.neighbourhoodEvent(force, hood),
-                    TypeFactory.defaultInstance().constructCollectionType(ArrayList.class, Person.class));
+                    TypeFactory.defaultInstance().constructCollectionType(ArrayList.class, Event.class));
         } catch (IOException | URISyntaxException e) {
             e.printStackTrace();
         }
@@ -295,7 +293,7 @@ public class PoliceUK {
     public ArrayList<Priority> getNeighbourhoodPriorities(final String force, final String hood) {
         try {
             return OBJECT_MAPPER.readValue(PoliceAPI.neighbourhoodPriorities(force, hood),
-                    TypeFactory.defaultInstance().constructCollectionType(ArrayList.class, Person.class));
+                    TypeFactory.defaultInstance().constructCollectionType(ArrayList.class, Priority.class));
         } catch (IOException | URISyntaxException e) {
             e.printStackTrace();
         }

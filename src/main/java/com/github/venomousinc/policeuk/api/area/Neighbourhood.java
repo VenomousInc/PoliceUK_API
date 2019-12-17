@@ -1,12 +1,12 @@
-package com.github.martinbennett.policeuk.api.area;
+package com.github.venomousinc.policeuk.api.area;
 
 
 import java.util.ArrayList;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.github.martinbennett.policeuk.api.ContactDetails;
-import com.github.martinbennett.policeuk.api.Link;
+import com.github.venomousinc.policeuk.api.ContactDetails;
+import com.github.venomousinc.policeuk.api.Link;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPropertyOrder({

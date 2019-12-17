@@ -1,8 +1,7 @@
-package com.github.martinbennett.policeuk.api;
+package com.github.venomousinc.policeuk.api;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.github.martinbennett.policeuk.api.ContactDetails;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPropertyOrder({
@@ -14,7 +13,7 @@ import com.github.martinbennett.policeuk.api.ContactDetails;
 public class Person {
 
     @JsonProperty("bio")
-    public Object bio;
+    public String bio;
     @JsonProperty("contact_details")
     public ContactDetails contactDetails;
     @JsonProperty("name")

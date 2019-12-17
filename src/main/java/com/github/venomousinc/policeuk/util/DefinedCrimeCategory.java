@@ -1,4 +1,4 @@
-package com.github.martinbennett.policeuk.util;
+package com.github.venomousinc.policeuk.util;
 
 /**
  * @author VenomousInc
