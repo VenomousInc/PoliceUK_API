@@ -17,7 +17,9 @@ dependencies {
     compile 'com.fasterxml.jackson.core:jackson-annotations:2.15.2'
     compile 'com.fasterxml.jackson.core:jackson-core:2.15.2'
     compile 'com.fasterxml.jackson.core:jackson-databind:2.15.2'
+
     // https://mvnrepository.com/artifact/org.apache.httpcomponents.client5/httpclient5
     implementation("org.apache.httpcomponents.client5:httpclient5:5.2.1")
+
     compile 'org.jetbrains:annotations:13.0'
 }
