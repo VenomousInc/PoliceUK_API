@@ -1,6 +1,6 @@
 package com.github.venomousinc.policeuk.util;
 
-import org.apache.http.client.utils.URIBuilder;
+import org.apache.hc.core5.net.URIBuilder;
 
 import java.net.MalformedURLException;
 import java.net.URISyntaxException;

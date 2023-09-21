@@ -38,6 +38,10 @@ public class PoliceUK {
 
     private LastAPIUpdate lastAPIUpdate = null;
 
+    public static void main(String[] args) {
+
+    }
+
     public PoliceUK() {
         LOGGER.info("Creating PoliceUK Data Instance.");
         getLastAPIUpdate();
