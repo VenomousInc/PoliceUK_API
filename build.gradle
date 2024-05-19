@@ -4,9 +4,7 @@ plugins {
 }
 
 group 'com.github.venomousinc.policeuk'
-version '1.3.1'
-
-sourceCompatibility = 1.8
+version '1.3.2'
 
 repositories {
     mavenCentral()
